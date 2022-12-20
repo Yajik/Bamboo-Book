@@ -112,10 +112,7 @@
 }
 
 .profile-mobile{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    display: none;
 }
 
 .profile-mobile-select{
@@ -125,10 +122,6 @@
     background-color: unset;
     padding: 0;
     gap: 60px;
-}
-
-.profileNone{
-    display: none;
 }
 
 .none{
