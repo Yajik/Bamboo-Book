@@ -1,0 +1,200 @@
+button{
+    padding: 5px 15px;
+    background-color: #78AB2B;
+    cursor: pointer;
+    transition: 0.5s;
+    border: none;
+    border-radius: 30px;
+}
+
+button:hover{
+    background-color: #90C343;
+    transition: 0.5s;
+}
+
+button a{
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+}
+
+.button__logout{
+    padding: 12px 15px;
+}
+
+.button__large{
+    padding: 10px 15px;
+}
+
+.button__large a{
+    font-size: 20px;
+}
+
+.button__pink{
+    background-color: #DD6FBE;
+}
+
+.button__pink:hover{
+    background-color: #ea7bc9;
+}
+
+.button__orange{
+    background-color: #EF7835;
+}
+
+.button__orange:hover{
+    background-color: #fa8a4d;
+}
+
+.search__submit{
+    padding: 10px 15px;
+    background-color: #78AB2B;
+    cursor: pointer;
+    transition: 0.5s;
+    border: none;
+    border-radius: 30px;
+    font-size: 14px;
+    color: white;
+}
+
+
+.search__submit:hover{
+    background-color: #90C343;
+    transition: 0.5s;
+}
+
+input[type="search"]{
+    padding: 6px 10px;
+    background-color: white;
+    border-radius: 30px;
+    border: 2px solid #78AB2B;
+    width: 100%;
+    font-size: 20px;
+}
+
+.email{
+    padding: 6px 10px;
+    background-color: white;
+    border-radius: 30px;
+    border: 2px solid #78AB2B;
+    width: 100%;
+    max-width: 170px;
+    font-size: 20px;
+}
+
+.email:focus{
+    outline: none;
+}
+
+.OK{
+    padding: 11px 10px;
+    background-color: #78AB2B;
+    cursor: pointer;
+    transition: 0.5s;
+    border: none;
+    border-radius: 30px;
+    font-size: 14px;
+    color: white;
+}
+
+.tag{
+    padding: 5px 10px;
+    background-color: #EDEDED;
+    border-radius: 30px;
+}
+
+.tag a{
+    font-size: 14px;
+    color: black;
+    font-weight: 500;
+}
+
+@media (max-width: 1200px) {
+    button a{
+        font-size: 12px;
+    }
+
+    .button__large a{
+        font-size: 15px;
+    }
+
+    .search__submit{
+        font-size: 12px;
+    }
+
+    input[type="search"]{
+        font-size: 15px;
+    }
+
+    .email{
+        font-size: 15px;
+    }
+
+    .OK{
+        font-size: 12px;
+    }
+
+    .tag a{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 960px) {
+    button a{
+        font-size: 11px;
+    }
+
+    .button__large a{
+        font-size: 13px;
+    }
+
+    .search__submit{
+        font-size: 11px;
+    }
+
+    input[type="search"]{
+        font-size: 13px;
+    }
+
+    .email{
+        font-size: 13px;
+    }
+
+    .OK{
+        font-size: 11px;
+    }
+
+    .tag a{
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 768px) {
+    button a{
+        font-size: 10px;
+    }
+
+    .button__large a{
+        font-size: 12px;
+    }
+
+    .search__submit{
+        font-size: 10px;
+    }
+
+    input[type="search"]{
+        font-size: 12px;
+    }
+
+    .email{
+        font-size: 12px;
+    }
+
+    .OK{
+        font-size: 10px;
+    }
+
+    .tag a{
+        font-size: 10px;
+    }
+}

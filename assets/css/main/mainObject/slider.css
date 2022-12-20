@@ -1,0 +1,57 @@
+.slider{
+    padding-left: 100px;
+    display: flex;
+    align-items: center;
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: #EDEDED;
+}
+
+.slider-block{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start
+}
+
+.slider__first{
+    background-image: url("../../../img/main/slider/berserk-manga 1.png");
+}
+
+@media (max-width: 960px) {
+    .slider{
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slider{
+        background-size: cover;
+        padding: 15px;
+        height: 200px;
+    }
+
+    .slider-block{
+        background-color: rgba(237, 237, 237, 0.8);;
+        border-radius: 30px;
+        padding: 15px;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 450px) {
+    .slider{
+        background-size: cover;
+        padding: 20px;
+        height: 130px;
+    }
+
+    .slider-block{
+        background-color: rgba(237, 237, 237, 0.8);;
+        border-radius: 30px;
+        padding: 15px;
+        gap: 10px;
+    }
+}

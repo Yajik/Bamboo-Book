@@ -1,0 +1,94 @@
+.catalog__genre{
+    display: flex;
+    gap: 60px;
+    width: 100%;
+}
+
+.catalog__genre-block{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.catalog__genre-search{
+    width: 100%;
+}
+
+.catalog__genre-menu-search{
+    width: 100%;
+}
+
+.catalog__genre-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.catalog__genre-title-text{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.catalog__genre-options{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.catalog__genre-option{
+    padding: 5px 10px;
+}
+
+.catalog__genre-selected{
+    background-color: #78AB2B;
+    border-radius: 30px;
+}
+
+.catalog__genre-selected p{
+    color: white;
+}
+
+.catalog__genre-burger{
+    display: none;
+    cursor: pointer;
+}
+
+.catalog__genre-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.catalog__genre-menu-options{
+    text-align: right;
+}
+
+.none{
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .catalog__genre-burger{
+        display: block;
+    }
+
+    .catalog__genre-burger img{
+        width: 30px;
+    }
+
+    .catalog__genre-block{
+        gap: 30px;
+    }
+
+    .catalogNone{
+        display: none;
+    }
+}
+
+@media (max-width: 450px) {
+    .mobileNone{
+        display: none;
+    }
+}
