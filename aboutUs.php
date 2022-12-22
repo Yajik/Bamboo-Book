@@ -1,3 +1,7 @@
+<?php
+session_start()
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,7 +22,7 @@
     <div class="header__row">
         <div class="header__row-top">
             <div class="header__row-left">
-                <a href="index.html">
+                <a href="./index.php">
                     <div class="logotype">
                         <img src="./assets/img/main/header/2223150%206.png" alt="">
                         <p class="logoText">bamboo book</p>
@@ -27,26 +31,34 @@
 
                 <div class="header__row-links tabletNone">
                     <button>
-                        <a href="index.html">Главная</a>
+                        <a href="./index.php">Главная</a>
                     </button>
 
                     <button>
-                        <a href="./catalog.html">Каталог</a>
+                        <a href="./catalog.php">Каталог</a>
                     </button>
 
                     <button>
-                        <a href="./aboutUs.html">О нас</a>
+                        <a href="./aboutUs.php">О нас</a>
                     </button>
                 </div>
             </div>
 
-            <div class="header__row-right tabletNone" style="">
+            <div class="header__row-right tabletNone" <?php if(!isset($_SESSION['login'])){echo 'style="display:none"';}?>>
                 <button style="display: flex; gap: 10px; align-items: center">
-                    <a href="./profile.html">Профиль</a>
-                    <a href="./profile.html"><img src="./assets/img/main/header/photo_2022-12-09_15-21-55%201.png" alt=""></a>
+                    <a href="./profile.php"><?=$_SESSION['login']?></a>
+                    <a href="./profile.php"><?="<img src='$_SESSION[img]' alt=''>"?></a>
                 </button>
 
-                <button class="button__logout"><a href="">Выйти</a></button>
+                <button class="button__logout"><a href="./logout.php">Выйти</a></button>
+            </div>
+
+            <div class="header__row-right tabletNone" <?php if(isset($_SESSION['login'])){echo 'style="display:none"';}?>>
+                <button style="display: flex; gap: 10px; align-items: center">
+                    <a href="./login.php">Войти</a>
+                </button>
+
+                <button class="button__logout"><a href="registration.php">Регистрация</a></button>
             </div>
 
             <div class="header__row-burgerMenu">
@@ -56,16 +68,22 @@
 
         <div class="header__row-menu none">
             <div class="header__row-links">
-                <a href="index.html" style="color: black; border-bottom: 1px solid #78AB2B">Главная</a>
+                <a href="./index.php" style="color: black; border-bottom: 1px solid #78AB2B">Главная</a>
 
-                <a href="./catalog.html" style="color: black; border-bottom: 1px solid #78AB2B">Каталог</a>
+                <a href="./catalog.php" style="color: black; border-bottom: 1px solid #78AB2B">Каталог</a>
 
-                <a href="./aboutUs.html" style="color: black; border-bottom: 1px solid #78AB2B">О нас</a>
+                <a href="./aboutUs.php" style="color: black; border-bottom: 1px solid #78AB2B">О нас</a>
             </div>
 
-            <div class="header__row-right ">
-                <a href="./profile.html"><img src="./assets/img/main/header/photo_2022-12-09_15-21-55%201.png" alt=""></a>
-                <a href="" style="color: black; border-bottom: 1px solid #78AB2B">Выйти</a>
+            <div class="header__row-right" <?php if(!isset($_SESSION['login'])){echo 'style="display:none"';}?>>
+                <a href="./profile.php"><?="<img src='$_SESSION[img]' alt=''>"?></a>
+
+                <a href="./logout.php" style="color: black; border-bottom: 1px solid  #78AB2B">Выйти</a>
+            </div>
+
+            <div class="header__row-right" <?php if(isset($_SESSION['login'])){echo 'style="display:none"';}?>>
+                <a href="./login.php" style="color: black; border-bottom: 1px solid  #78AB2B">Войти</a>
+                <a href="./registration.php" style="color: black; border-bottom: 1px solid  #78AB2B">Регистрация</a>
             </div>
         </div>
 
@@ -85,15 +103,15 @@
 
 <div class="content largeGap">
     <div class="cover aboutUs">
-    <div class="cover-block" style="">
-        <img src="./assets/img/cover/Без%20имени-1%203.png" alt="">
-        <div class="cover-text" style="">
-          <h1 style="color: #78AB2B">Привет!</h1>
-          <h2>Ты зашёл, чтобы узнать о нас?</h2>
-          <h2>Сейчас расскажу!</h2>
+        <div class="cover-block" style="">
+            <img src="./assets/img/cover/Без%20имени-1%203.png" alt="">
+            <div class="cover-text" style="">
+                <h1 style="color: #78AB2B">Привет!</h1>
+                <h2>Ты зашёл, чтобы узнать о нас?</h2>
+                <h2>Сейчас расскажу!</h2>
+            </div>
         </div>
-  </div>
-  </div>
+    </div>
 
     <div class="aboutUs__block">
         <div class="aboutUs__block-text">
@@ -102,12 +120,12 @@
     </div>
 
     <div class="content-form">
-      <div class="content-form-text">
-          <h1 style="color: #78AB2B">Есть вопросы? Свяжись с нами!</h1>
-          <h2>Мы ответим вам в личные сообщения или на почту, если вы не зарегестрированы</h2>
-      </div>
+        <div class="content-form-text">
+            <h1 style="color: #78AB2B">Есть вопросы? Свяжись с нами!</h1>
+            <h2>Мы ответим вам в личные сообщения или на почту, если вы не зарегестрированы</h2>
+        </div>
 
-      <form action="" class="mailUs">
+        <form action="" class="mailUs">
             <div class="form-row">
                 <label style="width: 100%">
                     <p style="color: #78AB2B">Никнейм</p>
@@ -128,15 +146,15 @@
             <label style="text-align: center">
                 <input type="submit" class="send">
             </label>
-      </form>
-  </div>
+        </form>
+    </div>
 
     <div class="aboutUs__donate">
         <img src="./assets/img/aboutUs/Без%20имени-1%204.png" alt="">
 
         <div class="aboutUs__donate-text">
             <h2>Не дай Кальциферу потухнуть, поддержи проект. Он будет рад любой копеечке!</h2>
-            
+
             <button class="button__large button__orange">
                 <a href="">Поддержать</a>
             </button>

@@ -20,6 +20,12 @@
     align-items: center
 }
 
+.profile__cover-left img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+}
+
 .profile__select{
     padding: 20px;
     background-color: #EDEDED;

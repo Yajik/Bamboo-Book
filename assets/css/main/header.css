@@ -34,6 +34,12 @@
     display: none;
 }
 
+.header__row-right img{
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+}
+
 @media (max-width: 768px) {
     .header__row{
         padding: 15px;

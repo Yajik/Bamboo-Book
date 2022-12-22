@@ -7,6 +7,7 @@
 @import "content.css";
 @import "mainObject/slider.css";
 @import "mainObject/cover.css";
+@import "mainObject/toRecommendation.css";
 
 *{
     padding: 0;
@@ -61,7 +62,14 @@ h2{
 .logotype{
     display: flex;
     gap: 5px;
-    align-items: center
+    align-items: center;
+    transition: 0.5s;
+}
+
+.logotype:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    margin: 0 10px;
 }
 
 .logotype img{

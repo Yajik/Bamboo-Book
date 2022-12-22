@@ -1,3 +1,7 @@
+<?php
+session_start()
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,7 +23,7 @@
     <div class="header__row">
         <div class="header__row-top">
             <div class="header__row-left">
-                <a href="index.html">
+                <a href="./index.php">
                     <div class="logotype">
                         <img src="./assets/img/main/header/2223150%206.png" alt="">
                         <p class="logoText">bamboo book</p>
@@ -28,26 +32,34 @@
 
                 <div class="header__row-links tabletNone">
                     <button>
-                        <a href="index.html">Главная</a>
+                        <a href="./index.php">Главная</a>
                     </button>
 
                     <button>
-                        <a href="./catalog.html">Каталог</a>
+                        <a href="./catalog.php">Каталог</a>
                     </button>
 
                     <button>
-                        <a href="./aboutUs.html">О нас</a>
+                        <a href="./aboutUs.php">О нас</a>
                     </button>
                 </div>
             </div>
 
-            <div class="header__row-right tabletNone" style="">
+            <div class="header__row-right tabletNone" <?php if(!isset($_SESSION['login'])){echo 'style="display:none"';}?>>
                 <button style="display: flex; gap: 10px; align-items: center">
-                    <a href="./profile.html">Профиль</a>
-                    <a href="./profile.html"><img src="./assets/img/main/header/photo_2022-12-09_15-21-55%201.png" alt=""></a>
+                    <a href="./profile.php"><?=$_SESSION['login']?></a>
+                    <a href="./profile.php"><?="<img src='$_SESSION[img]' alt=''>"?></a>
                 </button>
 
-                <button class="button__logout"><a href="">Выйти</a></button>
+                <button class="button__logout"><a href="./logout.php">Выйти</a></button>
+            </div>
+
+            <div class="header__row-right tabletNone" <?php if(isset($_SESSION['login'])){echo 'style="display:none"';}?>>
+                <button style="display: flex; gap: 10px; align-items: center">
+                    <a href="./login.php">Войти</a>
+                </button>
+
+                <button class="button__logout"><a href="registration.php">Регистрация</a></button>
             </div>
 
             <div class="header__row-burgerMenu">
@@ -57,16 +69,22 @@
 
         <div class="header__row-menu none">
             <div class="header__row-links">
-                <a href="index.html" style="color: black; border-bottom: 1px solid #78AB2B">Главная</a>
+                <a href="./index.php" style="color: black; border-bottom: 1px solid #78AB2B">Главная</a>
 
-                <a href="./catalog.html" style="color: black; border-bottom: 1px solid #78AB2B">Каталог</a>
+                <a href="./catalog.php" style="color: black; border-bottom: 1px solid #78AB2B">Каталог</a>
 
-                <a href="./aboutUs.html" style="color: black; border-bottom: 1px solid #78AB2B">О нас</a>
+                <a href="./aboutUs.php" style="color: black; border-bottom: 1px solid #78AB2B">О нас</a>
             </div>
 
-            <div class="header__row-right ">
-                <a href="./profile.html"><img src="./assets/img/main/header/photo_2022-12-09_15-21-55%201.png" alt=""></a>
-                <a href="" style="color: black; border-bottom: 1px solid #78AB2B">Выйти</a>
+            <div class="header__row-right" <?php if(!isset($_SESSION['login'])){echo 'style="display:none"';}?>>
+                <a href="./profile.php"><?="<img src='$_SESSION[img]' alt=''>"?></a>
+
+                <a href="./logout.php" style="color: black; border-bottom: 1px solid  #78AB2B">Выйти</a>
+            </div>
+
+            <div class="header__row-right" <?php if(isset($_SESSION['login'])){echo 'style="display:none"';}?>>
+                <a href="./login.php" style="color: black; border-bottom: 1px solid  #78AB2B">Войти</a>
+                <a href="./registration.php" style="color: black; border-bottom: 1px solid  #78AB2B">Регистрация</a>
             </div>
         </div>
 
@@ -90,8 +108,8 @@
     <div class="profile ">
         <div class="profile__cover">
             <div class="profile__cover-left">
-                <img src="./assets/img/profile/photo_2022-12-09_15-21-55%202.png" alt="">
-                <h2>Yajik</h2>
+                <a href=""><?="<img src='$_SESSION[img]' alt=''>"; ?></a>
+                <h2><?=$_SESSION['login']?></h2>
             </div>
 
             <div class="profile__cover-right">
@@ -111,8 +129,8 @@
     <div class="profile-mobile">
         <div class="profile-mobile-row">
             <div class="profile-mobile-left">
-                <img src="./assets/img/profile/photo_2022-12-09_15-21-55%202.png" alt="">
-                <h2>Yajik</h2>
+                <img src="<?="<img src='$_SESSION[img]' alt=''>"; ?>" alt="">
+                <h2><?=$_SESSION['login']?></h2>
             </div>
 
             <div class="profile-mobile-right">
@@ -180,7 +198,7 @@
 
             <div class="reader__list-list">
                 <div class="reader__list-list__block" style="">
-                    <a href="./Book/Alita.html"><img src="./assets/img/profile/Battle_Angel_Alita_vol01%202.png" alt=""></a>
+                    <a href="./Book/Alita.php"><img src="./assets/img/profile/Battle_Angel_Alita_vol01%202.png" alt=""></a>
 
                     <div class="list__block-text" style="">
                         <div class="list__block-title">
@@ -197,7 +215,7 @@
 
             <div class="reader__list-list">
                 <div class="reader__list-list__block" >
-                    <a href="./Book/GhostInTheShell.html"><img src="./assets/img/profile/GiS.manga%201.png" alt=""></a>
+                    <a href="./Book/GhostInTheShell.php"><img src="./assets/img/profile/GiS.manga%201.png" alt=""></a>
 
                     <div class="list__block-text">
                         <div class="list__block-title" >

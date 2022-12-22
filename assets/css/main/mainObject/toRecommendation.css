@@ -1,0 +1,29 @@
+.content__toRecommendation{
+    width: 100%;
+}
+
+.content__toRecommendation img{
+    width: 400px;
+}
+
+.content__toRecommendation-block{
+    border-radius: 30px;
+    background-color: #EDEDED;
+    padding: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content__toRecommendation-subBlock{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 600px;
+}
+
+.content__toRecommendation-subBlock .buttons{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}

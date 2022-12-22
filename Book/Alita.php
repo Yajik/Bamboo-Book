@@ -1,3 +1,7 @@
+<?php
+session_start()
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,19 +9,21 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bamboo Book-Призрак в доспехах</title>
+    <title>Bamboo Book-Алита боевой ангел</title>
     <link rel="stylesheet" href="../assets/css/main/main.css">
     <link rel="stylesheet" href="../assets/css/Book/book.css">
-    <link rel="stylesheet" href="../assets/css/Book/Alita/GITS.css">
+    <link rel="stylesheet" href="../assets/css/Book/Alita/Alita.css">
+    <script src="../assets/script.js" defer></script>
 
     <link rel="shortcut icon" href="/assets/img/main/favicon.ico" type="image/x-icon">
+
 </head>
 <body>
 <header>
     <div class="header__row">
         <div class="header__row-top">
             <div class="header__row-left">
-                <a href="../index.html">
+                <a href="./../index.php">
                     <div class="logotype">
                         <img src="./../assets/img/main/header/2223150%206.png" alt="">
                         <p class="logoText">bamboo book</p>
@@ -26,26 +32,34 @@
 
                 <div class="header__row-links tabletNone">
                     <button>
-                        <a href="../index.html">Главная</a>
+                        <a href="./../index.php">Главная</a>
                     </button>
 
                     <button>
-                        <a href="./../catalog.html">Каталог</a>
+                        <a href="./../catalog.php">Каталог</a>
                     </button>
 
                     <button>
-                        <a href="./../aboutUs.html">О нас</a>
+                        <a href="./../aboutUs.php">О нас</a>
                     </button>
                 </div>
             </div>
 
-            <div class="header__row-right tabletNone" style="">
+            <div class="header__row-right tabletNone" <?php if(!isset($_SESSION['login'])){echo 'style="display:none"';}?>>
                 <button style="display: flex; gap: 10px; align-items: center">
-                    <a href="./../profile.html">Профиль</a>
-                    <a href="./../profile.html"><img src="./../assets/img/main/header/photo_2022-12-09_15-21-55%201.png" alt=""></a>
+                    <a href="./../profile.php"><?=$_SESSION['login']?></a>
+                    <a href="./../profile.php"><?="<img src='$_SESSION[img]' alt=''>"?></a>
                 </button>
 
-                <button class="button__logout"><a href="">Выйти</a></button>
+                <button class="button__logout"><a href="./../logout.php">Выйти</a></button>
+            </div>
+
+            <div class="header__row-right tabletNone" <?php if(isset($_SESSION['login'])){echo 'style="display:none"';}?>>
+                <button style="display: flex; gap: 10px; align-items: center">
+                    <a href="./../login.php">Войти</a>
+                </button>
+
+                <button class="button__logout"><a href="./../registration.php">Регистрация</a></button>
             </div>
 
             <div class="header__row-burgerMenu">
@@ -55,16 +69,22 @@
 
         <div class="header__row-menu none">
             <div class="header__row-links">
-                <a href="../index.html" style="color: black; border-bottom: 1px solid #78AB2B">Главная</a>
+                <a href="./../index.php" style="color: black; border-bottom: 1px solid #78AB2B">Главная</a>
 
-                <a href="./../catalog.html" style="color: black; border-bottom: 1px solid #78AB2B">Каталог</a>
+                <a href="./../catalog.php" style="color: black; border-bottom: 1px solid #78AB2B">Каталог</a>
 
-                <a href="./../aboutUs.html" style="color: black; border-bottom: 1px solid #78AB2B">О нас</a>
+                <a href="./../aboutUs.php" style="color: black; border-bottom: 1px solid #78AB2B">О нас</a>
             </div>
 
-            <div class="header__row-right ">
-                <a href="./../profile.html"><img src="./../assets/img/main/header/photo_2022-12-09_15-21-55%201.png" alt=""></a>
-                <a href="" style="color: black; border-bottom: 1px solid #78AB2B">Выйти</a>
+            <div class="header__row-right" <?php if(!isset($_SESSION['login'])){echo 'style="display:none"';}?>>
+                <a href="./../profile.php"><?="<img src='$_SESSION[img]' alt=''>"?></a>
+
+                <a href="./../logout.php" style="color: black; border-bottom: 1px solid  #78AB2B">Выйти</a>
+            </div>
+
+            <div class="header__row-right" <?php if(isset($_SESSION['login'])){echo 'style="display:none"';}?>>
+                <a href="./../login.php" style="color: black; border-bottom: 1px solid  #78AB2B">Войти</a>
+                <a href="./../registration.php" style="color: black; border-bottom: 1px solid  #78AB2B">Регистрация</a>
             </div>
         </div>
 
@@ -82,12 +102,12 @@
     </div>
 </header>
 
-<div class="mangaCover gits"></div>
+<div class="mangaCover Alita"></div>
 
 <div class="content">
     <div class="manga__block" style="">
         <div class="manga__block-cover">
-            <img src="../assets/img/Book/main/Recomendation/GITS/GiS.manga.cover%20(1).jpg" alt="">
+            <img src="../assets/img/Book/Alita/Battle_Angel_Alita_vol01%201.png" alt="">
 
             <div class="manga__block-cover-buttons">
                 <button class="button__large">
@@ -102,12 +122,12 @@
 
         <div class="manga__block-info">
             <div class="manga__block-title">
-                <h1 style="color: #78AB2B">Призрак в доспехах</h1>
-                <p>(англ. Ghost in the Shell)</p>
+                <h1 style="color: #78AB2B">Боевой Ангел Алита</h1>
+                <p>(англ. GUNNM)</p>
             </div>
 
             <div class="manga__block-about">
-                <p>В ближайшем будущем, технологии прочно укоренились в обществе в целом. Кибернетические имплантаты тоже не является редкостью и роботы бродят столь обильно, как люди, все подключенные через их «призраков» на электронные потоки данных из сети. Майор Кусанаги Мотоко и общественной безопасности 9 находятся в постоянной борьбе с вновь созданной волне технологических террористов и кибер-хакеров.</p>
+                <p>Действие манги разворачивается в постапокалиптическом будущем. Город Тифарес парит высоко над землёй. В нём обитает высшая раса - Тифареанцы, они очень развиты. А на поверхности земли обитают отбросы общества - обычные люди, для которых Тифарес недоступен. Хотя мир и Людей и Тифареанцев высоко развит, городов на земле почти нет, люди вынуждены жить в руинах, на свалках... На поверхности повсеместно процветает преступность и наркобизнес.</p>
             </div>
 
             <div class="manga__block-subBlock" style="">
@@ -150,17 +170,17 @@
     <div class="manga__block-mini">
         <div class="manga__block-mini-cover">
             <div class="manga__block-title">
-                <h1 style="color: #78AB2B">Призрак в доспехах</h1>
-                <p>(англ. Ghost in the Shell)</p>
+                <h1 style="color: #78AB2B">Боевой Ангел Алита</h1>
+                <p>(англ. GUNNM)</p>
             </div>
             <div class="manga__block-cover">
-                <img src="../assets/img/Book/main/Recomendation/GITS/GiS.manga.cover%20(1).jpg" alt="">
+                <img src="../assets/img/Book/Alita/Battle_Angel_Alita_vol01%201.png" alt="">
             </div>
         </div>
 
         <div class="manga__block-info">
             <div class="manga__block-about">
-                <p>В ближайшем будущем, технологии прочно укоренились в обществе в целом. Кибернетические имплантаты тоже не является редкостью и роботы бродят столь обильно, как люди, все подключенные через их «призраков» на электронные потоки данных из сети. Майор Кусанаги Мотоко и общественной безопасности 9 находятся в постоянной борьбе с вновь созданной волне технологических террористов и кибер-хакеров.</p>
+                <p>Действие манги разворачивается в постапокалиптическом будущем. Город Тифарес парит высоко над землёй. В нём обитает высшая раса - Тифареанцы, они очень развиты. А на поверхности земли обитают отбросы общества - обычные люди, для которых Тифарес недоступен. Хотя мир и Людей и Тифареанцев высоко развит, городов на земле почти нет, люди вынуждены жить в руинах, на свалках... На поверхности повсеместно процветает преступность и наркобизнес.</p>
             </div>
 
             <div class="manga__block-cover-buttons">

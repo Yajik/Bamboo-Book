@@ -26,6 +26,10 @@ button a{
     padding: 10px 15px;
 }
 
+.button__large:hover{
+    transform: scale(1.1);
+}
+
 .button__large a{
     font-size: 20px;
 }
@@ -70,6 +74,10 @@ input[type="search"]{
     border: 2px solid #78AB2B;
     width: 100%;
     font-size: 20px;
+}
+
+input[type="search"]:focus{
+    outline: none;
 }
 
 .email{
